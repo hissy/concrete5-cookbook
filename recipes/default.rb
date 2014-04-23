@@ -49,9 +49,9 @@ end
 
 execute "composer-download" do
   command <<-EOF
-    curl -sS https://getcomposer.org/installer | php \
-    mv composer.phar /usr/local/bin/composer \
-    cd #{node[:concrete5][:install_path]}/web/concrete \
+    curl -sS https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+    cd #{node[:concrete5][:install_path]}/web/concrete
     composer install
   EOF
   not_if { ::File.exists?("/usr/local/bin/composer")}
